@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+nav {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+nav, a {
+  z-index: 4;
+}
+
+.aboutlink {
+  border: 1px solid grey;
+}
+
+.aboutlink:hover {
+  background-color: #55cfc4;
+  cursor: pointer;
+}
+
+.contactlink:hover {
+  background-color: #fed20c;
+  cursor: pointer;
+}
+
+.projectlink:hover{
+  background-color: #c37740;
+  cursor: pointer;
+}
+.container {
+  background-color: #55cfc4;
+  width: 100vw;
+  height: 100vh;
+}
+
+.what :not(.leave) {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fade {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.aboutlink, .contactlink, .projectlink {
+  color: white;
+  width: 120px;
+  text-align: center;
+  display: inline-block;
+  margin: 0 10px;
+  border-radius: 4px;
+  z-index: 4;
+  height: 40px;
+}

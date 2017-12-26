@@ -2,23 +2,36 @@ var context = new window.AudioContext() || new window.webkitAudioContext();
 var bar = document.getElementById("bar")
 var main = document.querySelector(".galaxy")
 var music = document.querySelector(".music")
+var aboutlink = document.querySelector(".aboutlink")
+var contactlink = document.querySelector(".contactlink")
+var projectlink = document.querySelector(".projectlink")
+var container = document.querySelector(".container")
+
 
 var rotate = 0
 var playing = false;
-const colors = //[
-//   "#55cfc4",
-//   "#f653a9",
-//   "#fdacba",
-//   "#fdc3b8"
-// ]
-
-[
-  "#01415f",
-  "#53d1ee",
-  "#fed20c",
-  "#c37740"
+const colors = [
+  "#55cfc4",
+  "#f653a9",
+  "#fdacba",
+  "#fdc3b8"
 ]
+
+// [
+//   "#01415f",
+//   "#53d1ee",
+//   "#fed20c",
+//   "#c37740"
+// ]
 var stars = [] // array to store all star divs
+
+aboutlink.addEventListener("click", function(){
+  container.classList.add("what")
+  projectlink.classList.add("fade")
+  contactlink.classList.add("fade")
+  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 1000)
+  setTimeout(() => window.location = "./about", 3000)
+})
 
 var stop = function(){
   audioElement.pause()
