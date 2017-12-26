@@ -4,7 +4,6 @@ var main = document.querySelector(".galaxy")
 var music = document.querySelector(".music")
 
 var rotate = 0
-var mouseisdown = false;
 var playing = false;
 const colors = //[
 //   "#55cfc4",
@@ -20,8 +19,6 @@ const colors = //[
   "#c37740"
 ]
 var stars = [] // array to store all star divs
-
-// main.addEventListener("click", function(){ mouseisdown = !mouseisdown; console.log("click") })
 
 var stop = function(){
   audioElement.pause()
@@ -106,11 +103,6 @@ function update() {
 
       }
 
-      // if(mouseisdown){
-      //   main.style.transform = `scaleY(1) rotate(${rotate}deg)`
-      // }else{
-      //   main.style.transform = "scaleY(0.7)"
-      // }
     }
 
 
