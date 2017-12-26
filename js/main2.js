@@ -72,8 +72,8 @@ function update() {
     requestAnimationFrame(update);
 
     // rotate +0.06 degrees every frame
-    main.style.transform = `rotate(${rotate}deg)`
-    rotate += 0.045
+    // main.style.transform = `rotate(${rotate}deg)`
+    // rotate += 0.045
 
     // Get the new frequency data every frame
     analyser.getByteFrequencyData(frequencyData)

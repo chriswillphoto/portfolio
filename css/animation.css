@@ -19,6 +19,10 @@
   animation-iteration-count: infinite;
 }
 
+.galaxy {
+  animation: 180s rotateRight infinite linear;
+}
+
 @keyframes subline {
   0% {transform: translateY(-200px)}
   50% {transform: translateY(-200px)}
@@ -35,4 +39,8 @@
   0% {color: white}
   100% {color: #53d1ee}
 
+}
+
+@keyframes rotateRight{
+    100%{ transform:rotate(360deg); }
 }
