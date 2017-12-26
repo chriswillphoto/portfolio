@@ -32,6 +32,8 @@ aboutlink.addEventListener("click", function(){
   setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 1000)
   setTimeout(() => window.location = "./about", 3000)
 })
+music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
+
 
 var stop = function(){
   audioElement.pause()
@@ -42,7 +44,6 @@ var go = function(){
   audioElement.play()
   music.classList.add("anim-music")
 }
-music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
 
 for (var i = 0; i < 320; i++) { // factory to create star divs
   let star = document.createElement("div")
@@ -78,15 +79,11 @@ audioElement.addEventListener("canplay", function() {
 // web audio api frequency analyser
 analyser.fftSize = 256; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
 var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-analyser.getByteFrequencyData(frequencyData);
+// analyser.getByteFrequencyData(frequencyData);
 
 function update() {
     // Schedule the next update
     requestAnimationFrame(update);
-
-    // rotate +0.06 degrees every frame
-    // main.style.transform = `rotate(${rotate}deg)`
-    // rotate += 0.045
 
     // Get the new frequency data every frame
     analyser.getByteFrequencyData(frequencyData)
@@ -122,4 +119,6 @@ function update() {
 };
 
 // Kick it off...
+source.connect(analyser);
+
 update();
