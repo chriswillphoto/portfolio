@@ -114,7 +114,7 @@ function update() {
       // }
 
       // if(frequencyData[i] > 5){
-      if(a % 8 === 0){
+      if(a % 4 === 0){
         stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[i] // use frequency value to increase box shadow to music
         stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
         stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
