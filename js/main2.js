@@ -112,9 +112,14 @@ function update() {
       }
 
       // if(frequencyData[i] > 5){
+      if(a % 8 === 0){
         stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
         stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
         stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
+      }
+        // stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
+        // stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
+        // stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
         // stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
       // }else{
       //   stars[i].style.boxShadow = "0 0 10px 2px white" // if no frequency data in the stars range, revert back to small and white
