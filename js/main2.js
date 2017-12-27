@@ -51,7 +51,10 @@ let fragment = document.createDocumentFragment()
 for (var i = 0; i < 320; i++) { // factory to create star divs
   let star = document.createElement("div")
   star.className = "star"
-  if(window.innerWidth < window.innerHeight){
+  if(i <= 128){
+    star.style.top = (Math.random() * 130 - Math.random() * 30) + "vh"
+    star.style.left = (Math.random() * 100) + "vw"
+  }else if(window.innerWidth < window.innerHeight){
     star.style.top = ( Math.random() * 120 - (Math.random() * 120) ) + "vh"
     star.style.left = ( Math.random() * 170 - (Math.random() * 70) ) + "vw"
   }else{
@@ -82,7 +85,7 @@ source.connect(analyser);
 // });
 
 // web audio api frequency analyser
-analyser.fftSize = 256; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
+analyser.fftSize = 64; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
 var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 // analyser.getByteFrequencyData(frequencyData);
 let a;
@@ -93,7 +96,7 @@ function update() {
     // Get the new frequency data every frame
     analyser.getByteFrequencyData(frequencyData)
 
-    for(let i=0; i < 64; i++){
+    for(let i=0; i < 26; i++){
       let j; // split stars evenly into different color groups
       if(i % 4 === 0){
         j = 3
@@ -105,19 +108,19 @@ function update() {
         j = 0
       }
 
-      if(frequencyData[i] > 5){
-        stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px " + colors[j] // use frequency value to increase box shadow to music
-        stars[i + (64)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
-        stars[i + (64*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
-        stars[i + (64*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
+      // if(frequencyData[i] > 5){
+        stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
+        stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
+        stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
+        stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
         // stars[i].style.width = (frequencyData[i] / 12) + "px"
         // stars[i].style.height = (frequencyData[i] / 12) + "px"
-      }else{
-        stars[i].style.boxShadow = "0 0 10px 2px white" // if no frequency data in the stars range, revert back to small and white
-        stars[i + (64)].style.boxShadow = "0 0 10px 2px white"
-        stars[i + (64*2)].style.boxShadow = "0 0 10px 2px white"
-        stars[i + (64*3)].style.boxShadow = "0 0 10px 1px white"
-      }
+      // }else{
+      //   stars[i].style.boxShadow = "0 0 10px 2px white" // if no frequency data in the stars range, revert back to small and white
+      //   stars[i + (26)].style.boxShadow = "0 0 10px 2px white"
+      //   stars[i + (26*2)].style.boxShadow = "0 0 10px 2px white"
+      //   stars[i + (26*3)].style.boxShadow = "0 0 10px 1px white"
+      // }
 
     }
 
@@ -125,6 +128,5 @@ function update() {
 };
 
 // Kick it off...
-
 
 // update();
