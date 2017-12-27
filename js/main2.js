@@ -30,7 +30,7 @@ aboutlink.addEventListener("click", function(){
   projectlink.classList.add("fade")
   contactlink.classList.add("fade")
   setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 1000)
-  setTimeout(() => window.location = "./about", 3000)
+  setTimeout(() => window.location = "./about.html", 3000)
 })
 music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
 

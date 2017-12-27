@@ -6,6 +6,7 @@
 
 body {
   font-family: sans-serif;
+  background-color: #55cfc4;
 }
 
 nav {
@@ -39,6 +40,23 @@ nav, a {
   background-color: #55cfc4;
   width: 100vw;
   height: 100vh;
+  background-image: url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 4%;
+  position: relative;
+  padding: 40px 0;
+}
+
+.words {
+  text-align: center;
+  width: 60%;
+  position: absolute;
+  right: 0;
+  padding: 20px;
+  overflow-y: scroll;
+  max-height: 92vh;
 }
 
 .what :not(.leave) {
@@ -60,4 +78,22 @@ nav, a {
   border-radius: 4px;
   z-index: 4;
   height: 40px;
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    position: static;
+    padding: 20px 0;
+    background-position: 40%;
+    background-size: cover;
+  }
+
+  .words {
+    position: static;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 90%;
+    padding: 10px;
+  }
 }
