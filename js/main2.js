@@ -51,8 +51,11 @@ let fragment = document.createDocumentFragment()
 for (var i = 0; i < 320; i++) { // factory to create star divs
   let star = document.createElement("div")
   star.className = "star"
-  if(i <= 128){
-    star.style.top = (Math.random() * 130 - Math.random() * 30) + "vh"
+  if(i < 26){
+    star.style.top = (Math.random() * 100) + "vh"
+    star.style.left = (Math.random() * 80 + 20) + "vw"
+  }else if(i <= 128){
+    star.style.top = (Math.random() * 140 - Math.random() * 40) + "vh"
     star.style.left = (Math.random() * 100) + "vw"
   }else if(window.innerWidth < window.innerHeight){
     star.style.top = ( Math.random() * 120 - (Math.random() * 120) ) + "vh"
@@ -112,9 +115,7 @@ function update() {
         stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
         stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
         stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
-        stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
-        // stars[i].style.width = (frequencyData[i] / 12) + "px"
-        // stars[i].style.height = (frequencyData[i] / 12) + "px"
+        // stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
       // }else{
       //   stars[i].style.boxShadow = "0 0 10px 2px white" // if no frequency data in the stars range, revert back to small and white
       //   stars[i + (26)].style.boxShadow = "0 0 10px 2px white"
@@ -128,5 +129,5 @@ function update() {
 };
 
 // Kick it off...
-
+stars.forEach( (i, index) => { console.log(i.style.top, index) })
 // update();
