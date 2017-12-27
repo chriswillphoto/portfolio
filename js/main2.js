@@ -56,7 +56,7 @@ for (var i = 0; i < 320; i++) { // factory to create star divs
   if(i < 26){
     star.style.top = (Math.random() * 100) + "vh"
     star.style.left = (Math.random() * 80 + 20) + "vw"
-  }else if(i <= 128){
+  }else if(i <= 104){
     star.style.top = (Math.random() * 140 - Math.random() * 40) + "vh"
     star.style.left = (Math.random() * 100) + "vw"
   }else if(window.innerWidth < window.innerHeight){
@@ -118,6 +118,7 @@ function update() {
         stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[i] // use frequency value to increase box shadow to music
         stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
         stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
+        stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
       }
         // stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
         // stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]
