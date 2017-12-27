@@ -30,21 +30,24 @@ aboutlink.addEventListener("click", function(){
   projectlink.classList.add("fade")
   contactlink.classList.add("fade")
   setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 1000)
-  setTimeout(() => window.location = "./about.html", 3000)
+  setTimeout(() => window.location = "./about.html", 2700)
 })
 music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
 
 
 var stop = function(){
+  window.cancelAnimationFrame(a)
   audioElement.pause()
   music.classList.remove("anim-music")
+  // stars.map(i => { i.style.boxShadow = "0 0 10px 2px white" })
 }
 
 var go = function(){
+  update()
   audioElement.play()
   music.classList.add("anim-music")
 }
-
+let fragment = document.createDocumentFragment()
 for (var i = 0; i < 320; i++) { // factory to create star divs
   let star = document.createElement("div")
   star.className = "star"
@@ -56,34 +59,36 @@ for (var i = 0; i < 320; i++) { // factory to create star divs
     star.style.left = ( Math.random() * 105 - (Math.random() * 5) ) + "vw"
   }
   stars.push(star)
-  main.appendChild(star)
+  fragment.appendChild(star)
+  // main.appendChild(star)
 }
-
+main.appendChild(fragment)
 // web audio api stuff
 var audioElement = document.getElementById("player");
 var source = context.createMediaElementSource(audioElement);
 source.connect(context.destination);
 
 var analyser = context.createAnalyser();
-
-audioElement.addEventListener("canplay", function() {
-
-
-    // Connect the output of the source to the input of the analyser
-    source.connect(analyser);
-
-    // Connect the output of the analyser to the destination
-    analyser.connect(context.destination);
-});
+analyser.connect(context.destination);
+source.connect(analyser);
+// audioElement.addEventListener("canplay", function() {
+//
+//
+//     // Connect the output of the source to the input of the analyser
+//     source.connect(analyser);
+//
+//     // Connect the output of the analyser to the destination
+//     analyser.connect(context.destination);
+// });
 
 // web audio api frequency analyser
 analyser.fftSize = 256; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
 var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 // analyser.getByteFrequencyData(frequencyData);
-
+let a;
 function update() {
     // Schedule the next update
-    requestAnimationFrame(update);
+    a = requestAnimationFrame(update);
 
     // Get the new frequency data every frame
     analyser.getByteFrequencyData(frequencyData)
@@ -100,17 +105,18 @@ function update() {
         j = 0
       }
 
-      if(frequencyData[i] > 2){
+      if(frequencyData[i] > 5){
         stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px " + colors[j] // use frequency value to increase box shadow to music
-        stars[i*2].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
-        stars[i*3].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
-        stars[i*4].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
+        stars[i + (64)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
+        stars[i + (64*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
+        stars[i + (64*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] / 10) + "px" + colors[j]
         // stars[i].style.width = (frequencyData[i] / 12) + "px"
         // stars[i].style.height = (frequencyData[i] / 12) + "px"
       }else{
-        stars[i].style.boxShadow = "0 0 10px 1px white" // if no frequency data in the stars range, revert back to small and white
-        stars[i*2].style.boxShadow = "0 0 10px 1px white"
-
+        stars[i].style.boxShadow = "0 0 10px 2px white" // if no frequency data in the stars range, revert back to small and white
+        stars[i + (64)].style.boxShadow = "0 0 10px 2px white"
+        stars[i + (64*2)].style.boxShadow = "0 0 10px 2px white"
+        stars[i + (64*3)].style.boxShadow = "0 0 10px 1px white"
       }
 
     }
@@ -119,6 +125,6 @@ function update() {
 };
 
 // Kick it off...
-source.connect(analyser);
 
-update();
+
+// update();
