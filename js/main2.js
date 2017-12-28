@@ -71,6 +71,7 @@ for (var i = 0; i < 320; i++) { // factory to create star divs
 main.appendChild(fragment)
 // web audio api stuff
 var audioElement = document.getElementById("player");
+audioElement.volume = 0.6;
 var source = context.createMediaElementSource(audioElement);
 source.connect(context.destination);
 
