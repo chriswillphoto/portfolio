@@ -25,6 +25,10 @@
   animation: 180s rotateRight infinite linear;
 }
 
+.fadeIn {
+  animation: fadeIn 1.4s linear -0.1s 1;
+}
+
 @keyframes subline {
   0% {transform: translateY(-200px)}
   50% {transform: translateY(-200px)}
@@ -66,4 +70,9 @@
     height: 100vh;
     width: 100vw;
   }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0 }
+  100% { opacity: 1 }
 }

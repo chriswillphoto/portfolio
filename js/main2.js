@@ -7,8 +7,6 @@ var contactlink = document.querySelector(".contactlink")
 var projectlink = document.querySelector(".projectlink")
 var container = document.querySelector(".container")
 
-
-var rotate = 0
 var playing = false;
 let colors = [
   "#55cfc4",
@@ -93,7 +91,7 @@ source.connect(analyser);
 analyser.fftSize = 64; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
 var frequencyData = new Uint8Array(analyser.frequencyBinCount);
 // analyser.getByteFrequencyData(frequencyData);
-let a;
+let a; // animation frame id used for stopping animation frames
 function update() {
     // Schedule the next update
     a = requestAnimationFrame(update);
@@ -137,5 +135,5 @@ function update() {
 };
 
 // Kick it off...
-console.log(colors)
+
 // update();
