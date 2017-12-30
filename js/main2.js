@@ -22,15 +22,18 @@ let colors = [
 //   "#c37740"
 // ]
 var stars = [] // array to store all star divs
+
+// make colors into a 32 instance array with the 4 colors
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
+
 aboutlink.addEventListener("click", function(){
   container.classList.add("what")
   projectlink.classList.add("fade")
   contactlink.classList.add("fade")
-  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 1000)
-  setTimeout(() => window.location = "./about.html", 2700)
+  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 800)
+  setTimeout(() => window.location = "./about.html", 2300)
 })
 music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
 
@@ -100,7 +103,7 @@ function update() {
     // Get the new frequency data every frame
     analyser.getByteFrequencyData(frequencyData)
 
-    for(let i=0; i < 26; i++){
+    for(let i=0; i < 32; i++){
       // let j; // split stars evenly into different color groups
       // if(i % 4 === 0){
       //   j = 3
@@ -114,10 +117,10 @@ function update() {
 
       // if(frequencyData[i] > 5){
       if(a % 4 === 0){
-        stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[i] // use frequency value to increase box shadow to music
-        stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
-        stars[i + (26*2)].style.boxShadow = "0 0 30px "  + (frequencyData[i] != 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
-        stars[i + (26*3)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[i]
+        stars[i].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px " + colors[i] // use frequency value to increase box shadow to music
+        stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+        stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
+        // stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
       }
         // stars[i].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px " + colors[j] // use frequency value to increase box shadow to music
         // stars[i + (26)].style.boxShadow = "0 0 30px "  + (frequencyData[i] > 0 ? (frequencyData[i] / 10) : 2) + "px" + colors[j]

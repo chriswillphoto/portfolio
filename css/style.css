@@ -25,12 +25,12 @@ nav, a {
 
 .what :not(.leave) {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.8s;
 }
 
 .fade {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.8s;
 }
 
 .aboutlink, .contactlink, .projectlink {
