@@ -76,10 +76,18 @@ nav, a {
   z-index: 20;
   font-size: 40px;
   text-align: center;
+  border: 1px dotted white;
+  line-height: 75px;
+  padding-right: 5px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }
 
 .music:hover {
   cursor: pointer;
+  color: black;
+  background-color: rgba(255,255,255,0.8);
 }
 
 .letters {
@@ -141,4 +149,38 @@ nav, a {
   box-shadow: 0 0 10px 2px white;
   opacity: 0.8;
   z-index: 2;
+}
+
+@media only screen and (max-width: 420px) {
+
+  .aboutlink, .contactlink, .projectlink {
+    color: white;
+    width: 80px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 10px;
+    border-radius: 4px;
+    z-index: 20;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .music {
+    top: 50px;
+  }
+
+
+  .letters * {
+    font-size: 44px;
+  }
+
+  .letters {
+    width: 240px;
+    line-height: 60px;
+    height: 60px;
+  }
+
+  .subline {
+    font-size: 20px;
+  }
 }
