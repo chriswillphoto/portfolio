@@ -1,13 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Great+Vibes|Oswald:400,700");
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Oswald:400,700');
+$color1: #58cee3;
+$color2: #1f68bf;
+$color3: #fe9593;
+$color4: #d43256;
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   /*background-color: rgb(0,0,14);*/
-  font-family: "Oswald", sans-serif; }
-
+  font-family: "Oswald", sans-serif;
+}
 nav {
   height: 40px;
   line-height: 40px;
@@ -15,18 +21,21 @@ nav {
   position: relative;
   /*width: 600px;*/
   /*left: 50%;*/
-  /*transform: translateX(-50%);*/ }
-
+  /*transform: translateX(-50%);*/
+}
 nav, a {
-  z-index: 20; }
+  z-index: 20;
+}
 
 .what :not(.leave) {
   opacity: 0;
-  transition: opacity 0.8s; }
+  transition: opacity 0.8s;
+}
 
 .fade {
   opacity: 0;
-  transition: opacity 0.8s; }
+  transition: opacity 0.8s;
+}
 
 .aboutlink, .contactlink, .projectlink {
   color: white;
@@ -36,26 +45,31 @@ nav, a {
   margin: 0 10px;
   border-radius: 4px;
   z-index: 20;
-  height: 40px; }
+  height: 40px;
+}
 
 .aboutlink:hover {
-  background-color: #58cee3;
-  cursor: pointer; }
+  background-color: $color1;
+  cursor: pointer;
+}
 
 .contactlink:hover {
-  background-color: #1f68bf;
-  cursor: pointer; }
+  background-color: $color2;
+  cursor: pointer;
+}
 
-.projectlink:hover {
-  background-color: #fe9593;
-  cursor: pointer; }
+.projectlink:hover{
+  background-color: $color3;
+  cursor: pointer;
+}
 
 .container {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-color: #00000e;
-  position: relative; }
+  background-color: rgb(0,0,14);
+  position: relative;
+}
 
 .music {
   position: absolute;
@@ -71,12 +85,14 @@ nav, a {
   padding-right: 5px;
   height: 80px;
   width: 80px;
-  border-radius: 50%; }
+  border-radius: 50%;
+}
 
 .music:hover {
   cursor: pointer;
   color: black;
-  background-color: rgba(255, 255, 255, 0.8); }
+  background-color: rgba(255,255,255,0.8);
+}
 
 .letters {
   margin: 0 auto;
@@ -89,13 +105,15 @@ nav, a {
   /*opacity: 0.9;*/
   height: 130px;
   line-height: 130px;
-  z-index: 1; }
-  .letters * {
+  z-index: 1;
+
+  * {
     color: white;
     display: inline-block;
     font-size: 120px;
-    font-weight: 500; }
-
+    font-weight: 500;
+  }
+}
 .subline {
   font-family: "Great Vibes", cursive;
   color: white;
@@ -107,7 +125,8 @@ nav, a {
   overflow: hidden;
   z-index: 1;
   text-align: center;
-  letter-spacing: 2px; }
+  letter-spacing: 2px;
+}
 
 .galaxy {
   /*background-color: #000e17;*/
@@ -118,21 +137,24 @@ nav, a {
   left: 0;
   /*transform: scale(0.2);*/
   /*transition: transform 1s;*/
-  z-index: 2; }
+  z-index: 2;
+}
 
 .star {
   width: 1px;
   height: 1px;
   border-radius: 50%;
-  background-color: white;
+  background-color: rgba(255,255,255,1);
   position: absolute;
   /*top: 50vh;*/
   /*left: 20vw;*/
   box-shadow: 0 0 10px 2px white;
   opacity: 0.8;
-  z-index: 2; }
+  z-index: 2;
+}
 
 @media only screen and (max-width: 420px) {
+
   .aboutlink, .contactlink, .projectlink {
     color: white;
     width: 80px;
@@ -142,20 +164,25 @@ nav, a {
     border-radius: 4px;
     z-index: 20;
     height: 40px;
-    font-size: 16px; }
+    font-size: 16px;
+  }
 
   .music {
-    top: 50px; }
+    top: 50px;
+  }
+
 
   .letters * {
-    font-size: 44px; }
+    font-size: 44px;
+  }
 
   .letters {
     width: 240px;
     line-height: 60px;
-    height: 60px; }
+    height: 60px;
+  }
 
   .subline {
-    font-size: 20px; } }
-
-/*# sourceMappingURL=style.css.map */
+    font-size: 20px;
+  }
+}
