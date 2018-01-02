@@ -32,16 +32,16 @@ aboutlink.addEventListener("click", function(){
   container.classList.add("what")
   projectlink.classList.add("fade")
   contactlink.classList.add("fade")
-  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 500)
-  setTimeout(() => window.location = "./about.html", 2000)
+  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 400)
+  setTimeout(() => window.location = "./about.html", 1400)
 })
 
 contactlink.addEventListener("click", function() {
   container.classList.add("what")
   aboutlink.classList.add("fade")
   projectlink.classList.add("fade")
-  setTimeout(() => contactlink.classList.add("contactlinkexpand"), 500)
-  setTimeout(() => window.location = "./contact.html", 2000)
+  setTimeout(() => contactlink.classList.add("contactlinkexpand"), 400)
+  setTimeout(() => window.location = "./contact.html", 1400)
 })
 
 // when music stops
@@ -95,6 +95,7 @@ for (let i = 0; i < 320; i++) { // factory to create star divs
   fragment.appendChild(star)
   // main.appendChild(star)
 }
+
 main.appendChild(fragment)
 
 // web audio api setup stuff

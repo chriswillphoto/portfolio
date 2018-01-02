@@ -12,22 +12,26 @@ body {
 }
 
 h2 {
-  text-shadow: -2px 0px 2px #55cfc4, -4px 0px 2px white;
+  text-shadow: -2px 0px 2px #55cfc4, -4px 0px  white;
   font-size: 80px;
   text-align: right;
 }
 
 .menu-button {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 24px;
+  left: 24px;
   height: 80px;
   width: 80px;
   z-index: 5;
   text-align: center;
   /*line-height: 80px;*/
   border-radius: 50%;
-  border: 1px solid black;
+  border: 2px solid white;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 3px 1px black;
 }
 
 .menu-button i {
@@ -37,14 +41,47 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
+.menu-button .bars {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.bar {
+  background-color: white;
+  width: 60%;
+  height: 7px;
+  margin: 7px auto;
+  border-radius: 3px;
+}
+
+.menu-button:hover #bar1 {
+  animation: menu-hover 0.5s ease-in-out 0s alternate infinite;
+}
+.menu-button:hover #bar2 {
+  animation: menu-hover 0.5s ease-in-out 0.1s alternate infinite;
+}
+.menu-button:hover #bar3 {
+  animation: menu-hover 0.5s ease-in-out 0.2s alternate infinite;
+}
+
 .menu {
-  width: 100px;
+  width: 130px;
   z-index: 7;
   background-color: white;
   position: fixed;
   top: 20px;
   left: 20px;
   text-align: center;
+  display: none;
+  transition: opacity 1s;
+
 }
 
 .menu * {
@@ -52,24 +89,18 @@ h2 {
   border: 1px solid slategrey;
 }
 
-.aboutlink {
-  border: 1px solid grey;
-}
-
-.aboutlink:hover {
+.about-link {
   background-color: #55cfc4;
+  color: white;
+  border: 1px dotted white;
+}
+
+.home-link:hover, .contact-link:hover, .projects-link:hover {
+  color: white;
+  background-color: rgba(0,0,0,0.7);
   cursor: pointer;
 }
 
-.contactlink:hover {
-  background-color: #fed20c;
-  cursor: pointer;
-}
-
-.projectlink:hover{
-  background-color: #c37740;
-  cursor: pointer;
-}
 .container {
   /*background-color: #55cfc4;*/
   background: linear-gradient(176deg, transparent 0%, transparent 85%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 14%, #55cfc4 15%, #55cfc4 84%, transparent 86%, transparent 100%);
@@ -106,17 +137,6 @@ h2 {
 .fade {
   opacity: 0;
   transition: opacity 1s;
-}
-
-.aboutlink, .contactlink, .projectlink {
-  color: white;
-  width: 120px;
-  text-align: center;
-  display: inline-block;
-  margin: 0 10px;
-  border-radius: 4px;
-  z-index: 4;
-  height: 40px;
 }
 
 @media only screen and (max-device-width: 800px) {

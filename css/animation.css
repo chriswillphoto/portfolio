@@ -24,6 +24,10 @@
   animation-iteration-count: infinite;
 }
 
+.menu-rotate {
+  animation: 0.3s menu-rotate linear 0s 1;
+}
+
 .galaxy {
   animation: 180s rotateRight infinite linear;
 }
@@ -99,4 +103,12 @@
 @keyframes fadeIn {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+
+@keyframes menu-rotate {
+  100% { transform: rotate(179deg); }
+}
+
+@keyframes menu-hover {
+  100% { transform: translateY(-2px);}
 }
