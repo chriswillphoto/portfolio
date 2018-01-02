@@ -9,18 +9,11 @@ const container = document.querySelector(".container")
 
 var playing = false;
 let colors = [
-  "#55cfc4",
-  "#f653a9",
-  "#fdacba",
-  "#fdc3b8"
+  "#1f68bf",
+  "#58cee3",
+  "#fe9593",
+  "#d43256"
 ]
-
-// [
-//   "#01415f",
-//   "#53d1ee",
-//   "#fed20c",
-//   "#c37740"
-// ]
 var stars = [] // array to store all star divs
 
 // make colors into a 32 instance array with the 4 colors

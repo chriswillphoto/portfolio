@@ -8,11 +8,11 @@
 
 body {
   font-family: "Oswald", sans-serif;
-  background-color: #55cfc4;
+  background-color: #58cee3;
 }
 
 h2 {
-  text-shadow: -2px 0px 2px #55cfc4, -4px 0px  white;
+  text-shadow: -2px 0px 2px #58cee3, -4px 0px  white;
   font-size: 80px;
   text-align: right;
 }
@@ -90,7 +90,7 @@ h2 {
 }
 
 .about-link {
-  background-color: #55cfc4;
+  background-color: #58cee3;
   color: white;
   border: 1px dotted white;
 }
@@ -103,7 +103,7 @@ h2 {
 
 .container {
   /*background-color: #55cfc4;*/
-  background: linear-gradient(176deg, transparent 0%, transparent 85%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 14%, #55cfc4 15%, #55cfc4 84%, transparent 86%, transparent 100%);
+  background: linear-gradient(176deg, transparent 0%, transparent 85%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 14%, #58cee3 15%, #58cee3 84%, transparent 86%, transparent 100%);
   width: 100vw;
   height: 100vh;
   /*background-image: url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png"); */
