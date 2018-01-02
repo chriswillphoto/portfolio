@@ -1,187 +1,138 @@
-var context = new AudioContext();
-var bar = document.getElementById("bar")
-// var circles = document.querySelectorAll(".circle")
+const context = new window.AudioContext() || new window.webkitAudioContext();
+const bar = document.getElementById("bar")
+const main = document.querySelector(".galaxy")
+let music; // music button added when media can be played
+const aboutlink = document.querySelector(".aboutlink")
+const contactlink = document.querySelector(".contactlink")
+const projectlink = document.querySelector(".projectlink")
+const container = document.querySelector(".container")
 
-var audioElement = document.getElementById("player");
-var source = context.createMediaElementSource(audioElement);
+var playing = false;
+let colors = [
+  "#55cfc4",
+  "#f653a9",
+  "#fdacba",
+  "#fdc3b8"
+]
+
+// [
+//   "#01415f",
+//   "#53d1ee",
+//   "#fed20c",
+//   "#c37740"
+// ]
+var stars = [] // array to store all star divs
+
+// make colors into a 32 instance array with the 4 colors
+colors = colors.concat(colors.slice())
+colors = colors.concat(colors.slice())
+colors = colors.concat(colors.slice())
+
+aboutlink.addEventListener("click", function(){
+  container.classList.add("what")
+  projectlink.classList.add("fade")
+  contactlink.classList.add("fade")
+  setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 500)
+  setTimeout(() => window.location = "./about.html", 2000)
+})
+
+contactlink.addEventListener("click", function() {
+  container.classList.add("what")
+  aboutlink.classList.add("fade")
+  projectlink.classList.add("fade")
+  setTimeout(() => contactlink.classList.add("contactlinkexpand"), 500)
+  setTimeout(() => window.location = "./contact.html", 2000)
+})
+
+// when music stops
+const stop = function(){
+  window.cancelAnimationFrame(a)
+  audioElement.pause()
+  music.classList.remove("anim-music")
+  stars.map(i => { i.style.boxShadow = "0 0 10px 2px white" })
+}
+
+// when music starts
+const go = function(){
+  update()
+  audioElement.play()
+  music.classList.add("anim-music")
+}
+
+const connector = function() {
+  // Connect the output of the source to the input of the analyser
+  source.connect(analyser);
+
+  // Connect the output of the analyser to the destination
+  analyser.connect(context.destination);
+
+  // put music button on page
+  music = document.createElement("div")
+  music.className = "music"
+  music.innerHTML = "<i class='fa fa-music'></i>"
+  music.addEventListener("click", function(){ playing ? stop() : go(); playing = !playing; })
+  container.appendChild(music)
+}
+
+let fragment = document.createDocumentFragment()
+for (let i = 0; i < 320; i++) { // factory to create star divs
+  let star = document.createElement("div")
+  star.className = "star"
+  if(i < 32){
+    star.style.top = (Math.random() * 100) + "vh"
+    star.style.left = (Math.random() * 80 + 20) + "vw"
+  }else if(i <= 104){
+    star.style.top = (Math.random() * 140 - (Math.random() * 40) ) + "vh"
+    star.style.left = (Math.random() * 120 - (Math.random() * 20) ) + "vw"
+  }else if(window.innerWidth < window.innerHeight){
+    star.style.top = ( Math.random() * 120 - (Math.random() * 120) ) + "vh"
+    star.style.left = ( Math.random() * 170 - (Math.random() * 70) ) + "vw"
+  }else{
+    star.style.top = ( Math.random() * 170 - (Math.random() * 70) ) + "vh"
+    star.style.left = ( Math.random() * 105 - (Math.random() * 5) ) + "vw"
+  }
+  stars.push(star)
+  fragment.appendChild(star)
+  // main.appendChild(star)
+}
+main.appendChild(fragment)
+
+// web audio api setup stuff
+const audioElement = document.getElementById("player");
+audioElement.volume = 0.26;
+const source = context.createMediaElementSource(audioElement);
 source.connect(context.destination);
 
-var analyser = context.createAnalyser();
+const analyser = context.createAnalyser();
 
-audioElement.addEventListener("canplay", function() {
-    // var source = context.createMediaElementSource(audioElement);
+if(audioElement.readyState >= audioElement.HAVE_FUTURE_DATA){
+  connector();
+}else{
+  audioElement.addEventListener("canplay", connector());
+}
 
-    // Connect the output of the source to the input of the analyser
-    source.connect(analyser);
-
-    // Connect the output of the analyser to the destination
-    analyser.connect(context.destination);
-});
-
-analyser.fftSize = 256;
-var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+// web audio api frequency analyser
+analyser.fftSize = 64; // has to be a number that is a power of 2 --- will split frequencies into an amount half of this number
+analyser.maxDecibels = -24
+analyser.minDecibels = -145
+let frequencyData = new Uint8Array(analyser.frequencyBinCount);
 analyser.getByteFrequencyData(frequencyData);
-// audioElement.play()
-
-// function update() {
-//     // Schedule the next update
-//     requestAnimationFrame(update);
-//
-//     // Get the new frequency data
-//     // analyser.getByteFrequencyData(frequencyData)
-//     // bar.style.width = (frequencyData[2]) + "px";
-//     for(let i=0; i < circles.length; i++){
-//       circles[i].style.height = frequencyData[i] * 2 + "px"
-//       circles[i].style.width = frequencyData[i] * 2 + "px"
-//       if(frequencyData[4] > 160){
-//         circles[i].style.borderColor = "purple"
-//       }else{
-//         circles[i].style.borderColor = "red"
-//       }
-//     }
-//
-//
-// };
-
-// Kick it off...
-// update();
 
 
-var canvas = document.querySelector('canvas');
-		var c = canvas.getContext('2d');
+let a; // animation frame id used for stopping animation frames
+function update() {
+    // Schedule the next update
+    a = requestAnimationFrame(update);
 
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+    // Get the new frequency data every frame and places it into frequencyData array
+    analyser.getByteFrequencyData(frequencyData)
 
-		var particleCount = 128;
-		// var mouse = {
-		// 	x: window.innerWidth / 2,
-		// 	y: window.innerHeight / 2
-		// };
-    //
-		// window.addEventListener("mousemove", function(event) {
-		// 	mouse.x = event.clientX - canvas.width / 2;
-		// 	mouse.y = event.clientY - canvas.height / 2;
-		// });
-
-		window.addEventListener("resize", function() {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-
-			lightParticles = [];
-			initializeParticles();
-		});
-
-
-		function LightParticle(x, y, radius, color) {
-			this.x = x;
-			this.y = y;
-			this.radius = radius;
-			this.color = color;
-
-			this.update = function() {
-
-				this.draw();
-			};
-
-			this.draw = function() {
-				c.save();
-				c.beginPath();
-				c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-				c.shadowColor = this.color;
-				c.shadowBlur = 19;
-				c.shadowOffsetX = 0;
-				c.shadowOffsetY = 0;
-				c.fillStyle = this.color;
-				c.fill();
-				c.closePath();
-				c.restore();
-			};
-		}
-
-		var lightParticles = [];
-
-		var timer = 0;
-		var opacity = 1;
-		var speed = 0.0005;
-		var colors = [
-			"#0952BD",
-			"#A5BFF0",
-			"#118CD6",
-			"#1AAEE8",
-			"#F2E8C9", "#FFF345"
-		];
-
-		var initializeParticles;
-
-		(initializeParticles = function() {
-			for (var i = 0; i < particleCount; i++) {
-
-				var randomColorIndex = Math.floor(Math.random() * 7);
-				var randomRadius = Math.random() * 2;
-
-				// Ensure particles are spawned past screen width and height so
-				// there will be no missing stars when rotating canvas
-				var x = (Math.random() * (canvas.width - 200)) - (canvas.width - 200) / 2;
-				var y = (Math.random() * (canvas.width - 200)) - (canvas.width - 200) / 2;
-				lightParticles.push(new LightParticle(x, y, randomRadius, colors[randomColorIndex]));
-			}
-		})();
-
-		function animate() {
-			window.requestAnimationFrame(animate);
-      analyser.getByteFrequencyData(frequencyData)
-
-			c.save();
-			if (isMouseDown === true || frequencyData[2] > 160) {
-
-				// Ease into the new opacity
-				var desiredOpacity = 0.01;
-				opacity += (desiredOpacity - opacity) * 0.03;
-				c.fillStyle = "rgba(18, 18, 18,"+ "0.02" +")";
-
-				// Ease into the new speed
-				var desiredSpeed = 0.012;
-				speed += (desiredSpeed - speed) * 0.01;
-				timer += speed;
-
-			} else {
-
-				// Ease back to the original opacity
-				var originalOpacity = 0.7;
-				opacity += (originalOpacity - opacity) * 0.01;
-				c.fillStyle = "rgba(18, 18, 18, " + opacity + ")";
-
-				// Ease back to the original speed
-				var originalSpeed = 0.001;
-				speed += (originalSpeed - speed) * 0.01;
-				timer += speed;
-
-
-			}
-
-			c.fillRect(0, 0, canvas.width, canvas.height);
-			c.translate(canvas.width / 2, canvas.height/2 );
-			c.rotate(timer);
-
-			for (var i = 0; i < lightParticles.length; i++) {
-				lightParticles[i].update();
-			}
-
-			c.restore();
-
-
-		}
-
-		var isMouseDown = false;
-
-		window.addEventListener("mousedown", function() {
-			isMouseDown = true;
-		});
-
-
-		window.addEventListener("mouseup", function() {
-			isMouseDown = false;
-		});
-
-		animate();
+    for(let i=0; i < 32; i++){
+      if(a % 4 === 0){ // only fire changes once every 4 frames
+        stars[i].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px " + colors[i] // use frequency value to increase box shadow to music
+        stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+        stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
+        // stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+      } //if
+    } // for
+}; // update function
