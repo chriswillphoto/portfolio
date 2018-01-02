@@ -4,6 +4,12 @@ $color2: #1f68bf;
 $color3: #fe9593;
 $color4: #d43256;
 
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -24,17 +30,17 @@ nav {
   /*transform: translateX(-50%);*/
 }
 nav, a {
-  z-index: 20;
+  z-index: 16;
 }
 
-.what :not(.leave) {
+.fade-out :not(.leave) {
   opacity: 0;
   transition: opacity 0.8s;
 }
 
 .fade {
-  opacity: 0;
-  transition: opacity 0.8s;
+  display: none!important;
+  transition: display 0.8s;
 }
 
 .aboutlink, .contactlink, .projectlink {
@@ -46,21 +52,19 @@ nav, a {
   border-radius: 4px;
   z-index: 20;
   height: 40px;
+  cursor: pointer;
 }
 
 .aboutlink:hover {
   background-color: $color1;
-  cursor: pointer;
 }
 
 .contactlink:hover {
   background-color: $color2;
-  cursor: pointer;
 }
 
 .projectlink:hover{
   background-color: $color3;
-  cursor: pointer;
 }
 
 .container {
@@ -114,6 +118,7 @@ nav, a {
     font-weight: 500;
   }
 }
+
 .subline {
   font-family: "Great Vibes", cursive;
   color: white;
@@ -129,14 +134,11 @@ nav, a {
 }
 
 .galaxy {
-  /*background-color: #000e17;*/
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  /*transform: scale(0.2);*/
-  /*transition: transform 1s;*/
   z-index: 2;
 }
 
@@ -146,9 +148,7 @@ nav, a {
   border-radius: 50%;
   background-color: rgba(255,255,255,1);
   position: absolute;
-  /*top: 50vh;*/
-  /*left: 20vw;*/
-  box-shadow: 0 0 10px 2px white;
+  @include box-shadow(0 0 10px 2px white);
   opacity: 0.8;
   z-index: 2;
 }

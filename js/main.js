@@ -22,7 +22,7 @@ colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
 
 aboutlink.addEventListener("click", function(){
-  container.classList.add("what")
+  container.classList.add("fade-out")
   projectlink.classList.add("fade")
   contactlink.classList.add("fade")
   setTimeout(() => aboutlink.classList.add("aboutlinkexpand"), 400)
@@ -30,11 +30,20 @@ aboutlink.addEventListener("click", function(){
 })
 
 contactlink.addEventListener("click", function() {
-  container.classList.add("what")
+  container.classList.add("fade-out")
   aboutlink.classList.add("fade")
   projectlink.classList.add("fade")
   setTimeout(() => contactlink.classList.add("contactlinkexpand"), 400)
   setTimeout(() => window.location = "./contact.html", 1400)
+})
+
+projectlink.addEventListener("click", function() {
+  container.classList.add("fade-out")
+  aboutlink.classList.add("fade")
+  debugger
+  contactlink.classList.add("fade")
+  setTimeout(() => projectlink.classList.add("projectlinkexpand"), 400)
+  setTimeout(() => window.location = "./projects.html", 1400)
 })
 
 // when music stops

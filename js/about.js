@@ -25,3 +25,9 @@ container.addEventListener("click", function() {
     showMenu = false
   }
 })
+
+contact.addEventListener("click", function() {
+  document.body.style.backgroundColor = "#1f68bf"
+  container.style.transform = "translateX(-100vw)"
+  setTimeout( () => window.location = "./contact.html", 800 )
+})
