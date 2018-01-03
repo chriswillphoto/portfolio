@@ -15,12 +15,14 @@ let colors = [
   "#d43256"
 ]
 var stars = [] // array to store all star divs
-
+var glows = []
 // make colors into a 32 instance array with the 4 colors
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
-
+colors = colors.concat(colors.slice())
+colors = colors.concat(colors.slice())
+console.log(colors)
 aboutlink.addEventListener("click", function(){
   container.classList.add("fade-out")
   projectlink.classList.add("fade")
@@ -77,15 +79,21 @@ const connector = function() {
 }
 
 let fragment = document.createDocumentFragment()
-for (let i = 0; i < 320; i++) { // factory to create star divs
+for (let i = 0; i < 256; i++) { // factory to create star divs
   let star = document.createElement("div")
+  let glow = document.createElement("div")
   star.className = "star"
+  glow.className = "glow"
   if(i < 32){
     star.style.top = (Math.random() * 100) + "vh"
     star.style.left = (Math.random() * 80 + 20) + "vw"
-  }else if(i <= 104){
+    glow.style.top = star.style.top
+    glow.style.left = star.style.left
+  }else if(i <= 128){
     star.style.top = (Math.random() * 140 - (Math.random() * 40) ) + "vh"
     star.style.left = (Math.random() * 120 - (Math.random() * 20) ) + "vw"
+    glow.style.top = star.style.top
+    glow.style.left = star.style.left
   }else if(window.innerWidth < window.innerHeight){
     star.style.top = ( Math.random() * 120 - (Math.random() * 120) ) + "vh"
     star.style.left = ( Math.random() * 170 - (Math.random() * 70) ) + "vw"
@@ -94,7 +102,10 @@ for (let i = 0; i < 320; i++) { // factory to create star divs
     star.style.left = ( Math.random() * 105 - (Math.random() * 5) ) + "vw"
   }
   stars.push(star)
+  glows.push(glow)
+  glow.style.background = `radial-gradient(${colors[i]} 1%, transparent 60%)`
   fragment.appendChild(star)
+  fragment.appendChild(glow)
   // main.appendChild(star)
 }
 
@@ -132,10 +143,14 @@ function update() {
 
     for(let i=0; i < 32; i++){
       if(a % 4 === 0){ // only fire changes once every 4 frames
-        stars[i].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px " + colors[i] // use frequency value to increase box shadow to music
-        stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
-        stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
+        // stars[i].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px " + colors[i] // use frequency value to increase box shadow to music
+        // stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+        // stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
         // stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+        glows[i].style.transform = `scale(${frequencyData[i] / 40})`
+        glows[i + (32)].style.transform = `scale(${frequencyData[i] / 40})`
+        glows[i + (32 * 2)].style.transform = `scale(${frequencyData[i] / 40})`
+        glows[i + (32 * 3)].style.transform = `scale(${frequencyData[i] / 40})`
       } //if
     } // for
 }; // update function

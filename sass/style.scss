@@ -150,7 +150,16 @@ nav, a {
   position: absolute;
   @include box-shadow(0 0 10px 2px white);
   opacity: 0.8;
-  z-index: 2;
+  z-index: 4;
+}
+
+.glow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 3;
+  transform: scale(0);
 }
 
 @media only screen and (max-width: 420px) {
