@@ -33,13 +33,6 @@ h2 {
   color: white;
   box-shadow: 0 0 3px 1px black;
 
-  i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   .bars {
     position: absolute;
     top: 50%;
@@ -105,13 +98,13 @@ h2 {
 }
 
 .container {
-  background: linear-gradient(176deg, transparent 0%, transparent 85%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/v1514353995/_DSC6712-Edit-Edit_g0kaog.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 14%, #58cee3 15%, #58cee3 84%, transparent 86%, transparent 100%);
+  background: linear-gradient(176deg, transparent 0%, transparent 86%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/q_53/v1514960509/_DSC6712-Edit-Edit2_zgqgjt.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 15%, #58cee3 15%, #58cee3 85%, transparent 86%, transparent 100%);
   width: 100vw;
   height: 100vh;
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 4%;
+  background-position: 2%;
   position: relative;
   padding: 70px 0 40px;
   transition: transform 0.8s;
