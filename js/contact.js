@@ -3,6 +3,9 @@ const menu = document.querySelector(".menu")
 const container = document.querySelector(".container")
 const projects = document.querySelector(".projects-link");
 const about = document.querySelector(".about-link")
+const arrowLeft = document.querySelector(".arrow-left")
+const arrowRight = document.querySelector(".arrow-right")
+let showMenu = false;
 
 menuButton.addEventListener("click", function() {
 

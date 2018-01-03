@@ -1,10 +1,13 @@
 .aboutlinkexpand {
+  color: #58cee3;
   animation: aboutexpand 2.4s ease-in-out 0s 1; }
 
 .contactlinkexpand {
+  color: #1f68bf;
   animation: contactexpand 2.4s ease-in-out 0s 1; }
 
 .projectlinkexpand {
+  color: #fe9593;
   animation: projectsexpand 2.4s ease-in-out 0s 1; }
 
 #c {
@@ -83,8 +86,6 @@
 @keyframes aboutexpand {
   0% {
     background-color: #58cee3; }
-  20% {
-    color: #58cee3; }
   40% {
     width: 100vw;
     margin: 0; }
@@ -99,8 +100,6 @@
 @keyframes contactexpand {
   0% {
     background-color: #1f68bf; }
-  20% {
-    color: #1f68bf; }
   40% {
     width: 100vw;
     margin: 0; }
@@ -115,8 +114,6 @@
 @keyframes projectsexpand {
   0% {
     background-color: #fe9593; }
-  20% {
-    color: #fe9593; }
   40% {
     width: 100vw;
     margin: 0; }
@@ -127,8 +124,7 @@
     margin: 0; }
   100% {
     height: 100vh;
-    width: 100vw;
-    color: #fe9593; } }
+    width: 100vw; } }
 @keyframes fadeIn {
   0% {
     opacity: 0; }

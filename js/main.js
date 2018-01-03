@@ -82,7 +82,7 @@ for (let i = 0; i < 256; i++) { // factory to create star divs
   star.className = "star"
   if(i < 32){
     star.style.top = (Math.random() * 100) + "vh"
-    star.style.left = (Math.random() * 80 + 20) + "vw"
+    star.style.left = (Math.random() * 60 + 20) + "vw"
   }else if(i <= 64){
     star.style.top = (Math.random() * 140 - (Math.random() * 40) ) + "vh"
     star.style.left = (Math.random() * 120 - (Math.random() * 20) ) + "vw"
@@ -91,7 +91,7 @@ for (let i = 0; i < 256; i++) { // factory to create star divs
     star.style.left = ( Math.random() * 170 - (Math.random() * 70) ) + "vw"
   }else{
     star.style.top = ( Math.random() * 170 - (Math.random() * 70) ) + "vh"
-    star.style.left = ( Math.random() * 105 - (Math.random() * 5) ) + "vw"
+    star.style.left = ( Math.random() * 120 - (Math.random() * 2) ) + "vw"
   }
   stars.push(star)
   fragment.appendChild(star)
