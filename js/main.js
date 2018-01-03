@@ -20,9 +20,7 @@ var stars = [] // array to store all star divs
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
 colors = colors.concat(colors.slice())
-colors = colors.concat(colors.slice())
-colors = colors.concat(colors.slice())
-console.log(colors)
+
 aboutlink.addEventListener("click", function(){
   container.classList.add("fade-out")
   projectlink.classList.add("fade")
@@ -85,7 +83,7 @@ for (let i = 0; i < 256; i++) { // factory to create star divs
   if(i < 32){
     star.style.top = (Math.random() * 100) + "vh"
     star.style.left = (Math.random() * 80 + 20) + "vw"
-  }else if(i <= 128){
+  }else if(i <= 64){
     star.style.top = (Math.random() * 140 - (Math.random() * 40) ) + "vh"
     star.style.left = (Math.random() * 120 - (Math.random() * 20) ) + "vw"
   }else if(window.innerWidth < window.innerHeight){
@@ -137,7 +135,7 @@ function update() {
         stars[i].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px " + colors[i] // use frequency value to increase box shadow to music
         stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
         stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
-        stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
+        // stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
       } //if
     } // for
 }; // update function
