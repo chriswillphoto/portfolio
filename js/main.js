@@ -147,10 +147,10 @@ function update() {
         // stars[i + (32)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
         // stars[i + (32*2)].style.boxShadow = "0 0 30px " + frequencyData[i] / 9.6 + "px" + colors[i]
         // stars[i + (32*3)].style.boxShadow = "0 0 30px "  + frequencyData[i] / 9.6 + "px" + colors[i]
-        glows[i].style.transform = `scale(${frequencyData[i] / 40})`
-        glows[i + (32)].style.transform = `scale(${frequencyData[i] / 40})`
-        glows[i + (32 * 2)].style.transform = `scale(${frequencyData[i] / 40})`
-        glows[i + (32 * 3)].style.transform = `scale(${frequencyData[i] / 40})`
+        glows[i].style.transform = `scale(${frequencyData[i] / 30})`
+        glows[i + (32)].style.transform = `scale(${frequencyData[i] / 30})`
+        glows[i + (32 * 2)].style.transform = `scale(${frequencyData[i] / 30})`
+        glows[i + (32 * 3)].style.transform = `scale(${frequencyData[i] / 30})`
       } //if
     } // for
 }; // update function
