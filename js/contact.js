@@ -3,9 +3,10 @@ const menu = document.querySelector(".menu")
 const container = document.querySelector(".container")
 const projects = document.querySelector(".projects-link");
 const about = document.querySelector(".about-link")
-const arrowLeft = document.querySelector(".arrow-left")
-const arrowRight = document.querySelector(".arrow-right")
+const smiley = document.querySelector(".smiley")
+const profile = document.querySelector(".profile")
 let showMenu = false;
+let sliderposition = "center"
 
 menuButton.addEventListener("click", function() {
 
@@ -29,4 +30,23 @@ about.addEventListener("click", function() {
   document.body.style.backgroundColor = "#58cee3"
   container.style.transform = "translateX(100vw)"
   setTimeout( () => window.location = "./about.html", 800 )
+})
+
+smiley.addEventListener("click", function() {
+  profile.style.opacity = 0
+  setTimeout(function() {
+    profile.style.backgroundPosition = sliderposition
+    profile.style.opacity = 1
+    switch(sliderposition){
+      case "center":
+        sliderposition = "right"
+        break;
+      case "right":
+        sliderposition = "left"
+        break;
+      case "left":
+        sliderposition = "center"
+        break;
+    }
+  }, 200 )
 })
