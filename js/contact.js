@@ -32,6 +32,12 @@ about.addEventListener("click", function() {
   setTimeout( () => window.location = "./about.html", 800 )
 })
 
+projects.addEventListener("click", function() {
+  document.body.style.backgroundColor = "#d43256"
+  container.style.transform = "translateX(-100vw)"
+  setTimeout( () => window.location = "./projects.html", 800)
+})
+
 smiley.addEventListener("click", function() {
   profile.style.opacity = 0
   setTimeout(function() {

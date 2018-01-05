@@ -82,7 +82,7 @@ h2 {
   cursor: pointer; }
 
 .container {
-  background: linear-gradient(176deg, transparent 0%, transparent 86%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/q_53/v1514960509/_DSC6712-Edit-Edit2_zgqgjt.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 15%, #58cee3 15%, #58cee3 85%, transparent 86%, transparent 100%);
+  background: linear-gradient(176deg, transparent 0%, transparent 86%, #eefaf9 86%, #eefaf9 100%), url("https://res.cloudinary.com/dyqesnour/image/upload/q_53/v1514960509/_DSC6712-Edit-Edit2_zgqgjt.png") no-repeat, linear-gradient(176deg, #eefaf9 0%, #eefaf9 14%, #fe9593 14%, #fe9593 15%, #58cee3 15%, #58cee3 85%, #fe9593 85%, #fe9593 86%, transparent 85%, transparent 100%);
   width: 100vw;
   height: 100vh;
   background-size: contain;
