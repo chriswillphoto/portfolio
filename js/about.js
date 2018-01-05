@@ -34,6 +34,6 @@ contact.addEventListener("click", function() {
 
 projects.addEventListener("click", function() {
   document.body.style.backgroundColor = "#d43256"
-  container.style.transfomr = "translateX(-100vw)"
+  container.style.transform = "translateX(-100vw)"
   setTimeout( () => window.location = "./projects.html", 800 )
 })
