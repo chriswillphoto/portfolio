@@ -13,8 +13,10 @@ menuButton.addEventListener("click", function() {
   menuButton.classList.add("menu-rotate")
   setTimeout( function() {
     menu.style.display = "block"
+    menu.classList.add('menu-extend')
     showMenu = true
     menuButton.classList.remove("menu-rotate")
+    setTimeout( () => menu.classList.remove("menu-extend"), 400 )
   }, 300 )
 
 })

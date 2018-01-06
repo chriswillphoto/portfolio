@@ -67,6 +67,7 @@ h2 {
   text-align: center;
   display: none;
   transition: opacity 1s;
+  overflow-y: hidden;
 
   * {
     padding: 10px;

@@ -64,7 +64,9 @@ body {
   left: 20px;
   text-align: center;
   display: none;
-  transition: opacity 1s;
+  // transition: max-height 0.4s;
+  overflow-y: hidden;
+  // max-height: 0;
 
   * {
     padding: 10px;

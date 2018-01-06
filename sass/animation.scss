@@ -64,6 +64,11 @@ $color4: #d43256;
   animation: fadeIn 1.4s linear -0.1s 1;
 }
 
+// menu slide down animation
+.menu-extend{
+  animation: menu-extend 0.5s ease-in-out -0.1s 1;
+}
+
 @keyframes subline {
   0% {transform: translateY(-200px)}
   50% {transform: translateY(-200px)}
@@ -151,4 +156,16 @@ $color4: #d43256;
 
 @keyframes menu-hover {
   100% { transform: translateY(-2px);}
+}
+
+@keyframes menu-drop {
+  0% { transform: translateY(-180px); }
+  100% { transform: translateY(0); }
+}
+
+
+
+@keyframes menu-extend {
+  0% { max-height: 0; }
+  100% { max-height: 200px; }
 }

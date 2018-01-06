@@ -23,7 +23,7 @@ $(".about-link").on("click", function() {
 })
 
 $(".contact-link").on("click", function() {
-  $("body").css("backgroundColor", "#58cee3")
+  $("body").css("backgroundColor", "#1f68bf")
   $(".container").css("transform", "translateX(100vw)")
   setTimeout( () => { window.location = "./contact.html"}, 800 )
 })
