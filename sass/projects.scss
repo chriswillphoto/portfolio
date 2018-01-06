@@ -95,6 +95,13 @@ body {
 }
 
 .container {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $color4;
+  transition: transform 0.8s;
+}
+
+.grid {
   padding-top: 50px;
   min-height: 100vh;
   width: 80vw;
@@ -132,6 +139,10 @@ body {
   z-index: 2;
   color: white;
 
+  p {
+    font-size: 14px;
+  }
+
   .name {
     text-decoration: underline;
     margin-bottom: 10px;
@@ -149,6 +160,22 @@ body {
 
   :not(img) {
     display: none;
+  }
+
+
+
+  .lang {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .what {
+      width: 100%;
+      h6{
+        text-decoration: underline;
+      }
+      p{
+        font-size: 14px;
+      }
+    }
   }
 
   .close {
@@ -186,7 +213,9 @@ body {
     content: '';
     color: white;
     box-sizing: border-box;
-    background: url("https://png.icons8.com/metro/540/info.png") center no-repeat;
+    background: url("http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/3d-transparent-glass-icons-alphanumeric/068022-3d-transparent-glass-icon-alphanumeric-information3-sc49.png"), rgba(255,255,255,0.8);
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: 40% auto;
     position: absolute;
     top: 0;

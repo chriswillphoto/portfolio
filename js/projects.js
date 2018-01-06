@@ -1,33 +1,33 @@
 const home = document.querySelector(".home-link");
 const contact = document.querySelector(".contact-link");
 const about = document.querySelector(".about-link");
-const menuButton = document.querySelector(".menu-button");
-const menu = document.querySelector(".menu")
 const container = document.querySelector(".container")
-// const bars = document.querySelector(".bars")
 
 let showMenu = false;
 
-menuButton.addEventListener("click", function() {
-
-  menuButton.classList.add("menu-rotate")
-  setTimeout( function() {
-    menu.style.display = "block"
+$(".menu-button").on("click", function() {
+  $(this).addClass("menu-rotate")
+  setTimeout( () => {
+    $(".menu").slideDown(300)
     showMenu = true
-    menuButton.classList.remove("menu-rotate")
-  }, 300 )
+    $(this).removeClass("menu-rotate")
+  }, 300 ) // set timeout
+}) // click event
 
+$(".container").on("click", function() {
+  if(showMenu){
+    $(".menu").slideUp(200)
+    showMenu = false
+  }  //if
 })
 
-container.addEventListener("click", function() {
-  if(showMenu){
-    menu.style.display = "none"
-    showMenu = false
-  }
+$(".about-link").on("click", function() {
+  $("body").css("backgroundColor", "#58cee3")
+  $(".container").css("transform", "translateX(100vw)")
 })
 
 $(".item").on("click", function() {
-    $(this).removeClass("hovering").children(":not(img)").slideDown(400)
+    $(this).removeClass("hovering").children(":not(img)").slideDown(400).children().slideDown(400).children().slideDown(400)
 })
 
 $(".close").on("click", function(e) {

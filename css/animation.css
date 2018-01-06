@@ -7,7 +7,7 @@
   animation: contactexpand 2.4s ease-in-out 0s 1; }
 
 .projectlinkexpand {
-  color: #fe9593;
+  color: #d43256;
   animation: projectsexpand 2.4s ease-in-out 0s 1; }
 
 #c {
@@ -113,12 +113,12 @@
     width: 100vw; } }
 @keyframes projectsexpand {
   0% {
-    background-color: #fe9593; }
+    background-color: #d43256; }
   40% {
     width: 100vw;
     margin: 0; }
   50% {
-    background-color: #fe9593;
+    background-color: #d43256;
     height: 100vh;
     width: 100vw;
     margin: 0; }
