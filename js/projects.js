@@ -1,8 +1,3 @@
-const home = document.querySelector(".home-link");
-const contact = document.querySelector(".contact-link");
-const about = document.querySelector(".about-link");
-const container = document.querySelector(".container")
-
 let showMenu = false;
 
 $(".menu-button").on("click", function() {
