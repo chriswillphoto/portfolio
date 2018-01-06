@@ -24,6 +24,13 @@ $(".container").on("click", function() {
 $(".about-link").on("click", function() {
   $("body").css("backgroundColor", "#58cee3")
   $(".container").css("transform", "translateX(100vw)")
+  setTimeout( () => { window.location = "./about.html"}, 800 )
+})
+
+$(".contact-link").on("click", function() {
+  $("body").css("backgroundColor", "#58cee3")
+  $(".container").css("transform", "translateX(100vw)")
+  setTimeout( () => { window.location = "./contact.html"}, 800 )
 })
 
 $(".item").on("click", function() {

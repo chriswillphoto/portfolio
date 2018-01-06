@@ -141,6 +141,20 @@ body {
 
   p {
     font-size: 14px;
+    margin: 20px 0;
+    padding: 0 30px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    color: $color1;
+  }
+
+  h6 {
+    text-decoration: underline;
   }
 
   .name {
@@ -148,15 +162,7 @@ body {
     margin-bottom: 10px;
   }
 
-  img {
-    width: 100%;
-    // border: 2px solid black;
-  }
 
-  p {
-    margin: 20px 0;
-    padding: 0 30px;
-  }
 
   :not(img) {
     display: none;
@@ -169,6 +175,7 @@ body {
     grid-template-columns: 1fr 1fr;
     .what {
       width: 100%;
+
       h6{
         text-decoration: underline;
       }
@@ -177,6 +184,8 @@ body {
       }
     }
   }
+
+
 
   .close {
     position: absolute;
@@ -225,5 +234,28 @@ body {
 
   &:hover:before {
     opacity: 0.6;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .container {
+    padding-top: 45px;
+  }
+
+  .menu-button {
+    top: 5px;
+    left: 5px;
+  }
+
+  .menu {
+    top: 5px;
+    left: 5px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+    width: 90vw;
   }
 }
