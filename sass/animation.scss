@@ -3,6 +3,18 @@ $color2: #1f68bf;
 $color3: #fe9593;
 $color4: #d43256;
 
+// bar wiggle on hover
+.menu-button:hover #bar1 {
+  animation: menu-hover 0.35s ease-in-out 0s alternate infinite;
+}
+.menu-button:hover #bar2 {
+  animation: menu-hover 0.35s ease-in-out 0.1s alternate infinite;
+}
+.menu-button:hover #bar3 {
+  animation: menu-hover 0.35s ease-in-out 0.2s alternate infinite;
+}
+
+// index page button expands
 .aboutlinkexpand {
   color: $color1;
   animation: aboutexpand 2.4s ease-in-out 0s 1;
@@ -16,6 +28,7 @@ $color4: #d43256;
   animation: projectsexpand 2.4s ease-in-out 0s 1;
 }
 
+// index page letter jiggle
 #c {animation: letters 2.5s ease-in-out -1.5s 1;}
 #h {animation: letters 2.5s ease-in-out -1.45s 1;}
 #r {animation: letters 2.5s ease-in-out -1.4s 1;}
@@ -27,6 +40,7 @@ $color4: #d43256;
 #h2 {animation: letters 2.5s ease-in-out -1.1s 1;}
 .subline h4 {animation: subline 3s ease-in-out -1s 1;}
 
+// index page music button
 .anim-music {
   animation-name: coloree;
   animation-direction: alternate;
@@ -35,14 +49,17 @@ $color4: #d43256;
   animation-iteration-count: infinite;
 }
 
+// burger menu spin on click
 .menu-rotate {
   animation: 0.3s menu-rotate linear 0s 1;
 }
 
+// spin galaxy
 .galaxy {
   animation: 180s rotateRight infinite linear;
 }
 
+// content fade in on info pages
 .fadeIn {
   animation: fadeIn 1.4s linear -0.1s 1;
 }

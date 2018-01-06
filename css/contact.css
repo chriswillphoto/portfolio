@@ -42,15 +42,6 @@ body {
   margin: 7px auto;
   border-radius: 3px; }
 
-.menu-button:hover #bar1 {
-  animation: menu-hover 0.5s ease-in-out 0s alternate infinite; }
-
-.menu-button:hover #bar2 {
-  animation: menu-hover 0.5s ease-in-out 0.1s alternate infinite; }
-
-.menu-button:hover #bar3 {
-  animation: menu-hover 0.5s ease-in-out 0.2s alternate infinite; }
-
 .menu {
   width: 130px;
   z-index: 7;
