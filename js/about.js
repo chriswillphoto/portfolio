@@ -4,14 +4,13 @@ const projects = document.querySelector(".projects-link");
 const menuButton = document.querySelector(".menu-button");
 const menu = document.querySelector(".menu")
 const container = document.querySelector(".container")
-// const bars = document.querySelector(".bars")
 
 let showMenu = false;
 
 menuButton.addEventListener("click", function() {
 
   menuButton.classList.add("menu-rotate")
-  setTimeout( function() {
+  setTimeout( function() {  // menu extends after rotate animation
     menu.style.display = "block"
     menu.classList.add('menu-extend')
     showMenu = true

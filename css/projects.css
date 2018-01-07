@@ -70,7 +70,7 @@ body {
 .container {
   width: 100vw;
   min-height: 100vh;
-  background-color: #d43256;
+  background: linear-gradient(90deg, #d43256 93%, rgba(255, 255, 255, 0.7) 93%, rgba(255, 255, 255, 0.7) 94%, #d43256 94%, #d43256 94.5%, rgba(255, 255, 255, 0.7) 94.5%, rgba(255, 255, 255, 0.7) 95%, #d43256 95%);
   transition: transform 0.8s; }
 
 .grid {
@@ -86,7 +86,7 @@ body {
   grid-row: 1;
   text-align: center;
   align-self: center;
-  background-color: #fe9593;
+  background: linear-gradient(165deg, #fe9593 0%, #fe9593 73%, #d43256 73%, #d43256 85%, #1f68bf 85%);
   height: 100%;
   display: table;
   width: 100%; }

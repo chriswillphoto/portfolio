@@ -87,7 +87,7 @@ body {
 .container {
   width: 100vw;
   min-height: 100vh;
-  background-color: $color4;
+  background: linear-gradient(90deg, $color4 93%, rgba(255,255,255,0.7) 93%, rgba(255,255,255, 0.7) 94%, $color4 94%, $color4 94.5%, rgba(255,255,255, 0.7) 94.5%, rgba(255,255,255, 0.7) 95%, $color4 95% );
   transition: transform 0.8s;
 }
 
@@ -106,7 +106,7 @@ body {
   grid-row: 1 ;
   text-align: center;
   align-self: center;
-  background-color: $color3;
+  background: linear-gradient(165deg, $color3 0%, $color3 73%, $color4 73%, $color4 85%, $color2 85%);
   height: 100%;
   display: table;
   width: 100%;
