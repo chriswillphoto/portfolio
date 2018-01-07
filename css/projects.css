@@ -109,7 +109,8 @@ body {
   .item img {
     width: 100%; }
   .item a {
-    color: #58cee3; }
+    color: #58cee3;
+    margin: 0 5px; }
   .item h6 {
     text-decoration: underline; }
   .item .name {
